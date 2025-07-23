@@ -31,4 +31,4 @@ GET localhost:3000/api/students/1
 
 Authorization: Bearer your_api_secret_here
 
-Deployed Website:
+Deployed Website:iot-week01-ass-ign-ment-production.up.railway.app/api
