@@ -3,8 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch api/index.ts",
-    "vercel:dev": "vercel dev",
-    "vercel:deploy": "vercel",
+    "dev-api": "ts-node api/index.ts",
     "drizzle": "drizzle-kit"
   },
   "dependencies": {
@@ -21,8 +20,9 @@
     "zod": "^4.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.19.9",
     "drizzle-kit": "^0.31.4",
+    "ts-node": "^10.9.2",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   }

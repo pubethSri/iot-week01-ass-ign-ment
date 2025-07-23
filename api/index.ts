@@ -1,7 +1,10 @@
 import { Hono } from "hono";
+import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
 import apiRouter from "./routes/api.js";
-import { handle } from "hono/vercel";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = new Hono().basePath("/api");
 
@@ -14,10 +17,11 @@ app.use(
   })
 );
 
-app.route("/v1", apiRouter);
+app.route("/", apiRouter);
 
-export const config = {
-  runtime: "edge",
-};
+serve({
+  fetch: app.fetch,
+  port: 3000,
+});
 
-export default handle(app);
+console.log("API server running at http://localhost:3000");
