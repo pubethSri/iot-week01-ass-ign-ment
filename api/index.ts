@@ -11,7 +11,7 @@ const app = new Hono().basePath("/api");
 app.use(
   "*",
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CORS_ORIGIN || "*",
     allowHeaders: ["Content-Type"],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   })
@@ -19,9 +19,9 @@ app.use(
 
 app.route("/", apiRouter);
 
+const port = Number(process.env.PORT) || 3000;
+
 serve({
   fetch: app.fetch,
-  port: 3000,
+  port,
 });
-
-console.log("API server running at http://localhost:3000");
